@@ -10,7 +10,7 @@ The logic of this module is based on the combination of user defined _input vari
 
 This provides a flexible combination of VMs with Windows or Linux, manually defined network configurations, or DHCP, as well as any given combination of Compute Clusters or Hosts sitting on either single DataStores or DataStore Clusters.
 
-The example files provide good baselines, which you can refer to start using this module.
+The example files provide good baselines, which you can refer to, to start using this module.
 
 #
 ### Features to be implemented in the future:
