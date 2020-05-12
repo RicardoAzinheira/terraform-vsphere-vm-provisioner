@@ -6,14 +6,14 @@ This is a Terraform 0.12 module that allows you to deploy VMs against a vSphere 
 This module is intended to be used as a VM provisioner to be used against a vSphere environment, 
 the resulting object is a VM resource that will create a vanilla VM with a single OS disk with the OS installed in the VM Template.
 
-The logic of this module is based on the combination of user defined _input variables_ and a counter with ternary logic to parse all the 16 VM resource blocks.
+The logic of this module is based on the combination of user defined _input variables_ and a _counter_ with _ternary logic_ to parse all the 16 VM resource blocks.
 
 This provides a flexible combination of VMs with Windows or Linux, manually defined network configurations, or DHCP, as well as any given combination of Compute Clusters or Hosts sitting on either single DataStores or DataStore Clusters.
 
-The example files provide good baselines, which you can use to start using this module.
+The example files provide good baselines, which you can refer to start using this module.
 
 #
-### Features to be implemented:
+### Features to be implemented in the future:
 
 - Multiple disks in the VMs with TF 0.12 dynamic blocks
 - Dynamic inline provisioning blocks in the VM resource blocks
