@@ -77,4 +77,4 @@ This is for the community, thus it has no restrictions, please feel free to shar
 
 ## Disclaimer
 
-The author of this module takes no responsability of its use by anyone, although this was properly tested against a supported vSphere Infra-Structure we still recommend proper testing before you use this in your production environment.
+The author of this module takes no responsability of its use by anyone, although this was properly tested against a supported vSphere Infra-Structure we still recommend testing before you use this in your production environment.
