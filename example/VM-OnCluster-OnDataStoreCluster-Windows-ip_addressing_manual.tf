@@ -13,7 +13,7 @@ locals {
 // Module
 //
 module "VM-OnCluster-OnDataStoreCluster-Windows-ip_addressing_manual" {
-  source                                 = "git::https://github.com/Korenet/terraform-vsphere-provisioner.git?ref=v1.0.2"                        // This should point to the module's location, on git or localy.
+  source                                 = "git::https://github.com/Korenet/terraform-vsphere-provisioner.git?ref=v1.0.3"                        // This should point to the module's location, on git or localy.
   vsphere_server                         = "vSphere-Server"             // This is your vCenter server.
   vsphere_user                           = "vSphere-User"               // You can define this here, but it's strongly recommended to pass these variables via file for security reasons.
   vsphere_password                       = "vSphere-Password"           // You can define this here, but it's strongly recommended to pass these variables via file for security reasons.
