@@ -30,53 +30,46 @@ These are the terraform building blocks of this module:
 
 ### **TF Providers**
 
-| Name | Version |
-|------|---------|
-| vsphere | ~> 1.18 |
+| Name                         | Version |
+|------------------------------|---------|
+| vsphere                      | ~> 1.18 |
 
 ### **TF Inputs**
 
-| Name | Description | Type | Default | Required |
-|------|-------------|------|---------|:--------:|
-| compute\_type | n/a | `string` | `null` | no |
-| domain | n/a | `string` | n/a | yes |
-| ip\_addressing\_type | n/a | `any` | `null` | no |
-| os\_type | n/a | `string` | `null` | no |
-| start\_serial | n/a | `number` | `1` | no |
-| storage\_type | n/a | `string` | `null` | no |
-| vm\_type | n/a | `string` | `null` | no |
-| vsphere\_cluster | n/a | `any` | `null` | no |
-| vsphere\_datacenter | n/a | `string` | n/a | yes |
-| vsphere\_datastore | n/a | `string` | `null` | no |
-| vsphere\_datastore\_cluster | n/a | `string` | `null` | no |
-| vsphere\_host | n/a | `string` | `null` | no |
-| vsphere\_network | n/a | `any` | n/a | yes |
-| vsphere\_password | n/a | `any` | n/a | yes |
-| vsphere\_server | n/a | `string` | n/a | yes |
-| vsphere\_user | n/a | `string` | n/a | yes |
-| vsphere\_vm\_cpus | n/a | `number` | n/a | yes |
-| vsphere\_vm\_disk-size | n/a | `number` | `0` | no |
-| vsphere\_vm\_dns\_servers | n/a | `list(string)` | `null` | no |
-| vsphere\_vm\_instance\_count | n/a | `number` | `1` | no |
-| vsphere\_vm\_ipv4\_address | n/a | `list(string)` | `null` | no |
-| vsphere\_vm\_ipv4\_gateway | n/a | `any` | `null` | no |
-| vsphere\_vm\_ipv4\_netmask | n/a | `any` | `null` | no |
-| vsphere\_vm\_memory | n/a | `number` | n/a | yes |
-| vsphere\_vm\_name | n/a | `string` | n/a | yes |
-| vsphere\_vm\_template | n/a | `string` | n/a | yes |
+| Name                         | Description                                                                    | Type           | Default | Required |
+|------------------------------|--------------------------------------------------------------------------------|----------------|---------|:--------:|
+| compute_type                 | host or cluster                                                                | `string`       | `null`  | no       |
+| domain                       | Active Directory Domain for Windows or domain for Linux                        | `string`       |   n/a   | yes      |
+| ip_addressing_type           | Used to define the use of DHCP or user variable defined network configuration  | `any`          | `null`  | no       |
+| os_type                      | windows or linux                                                               | `string`       | `null`  | no       |
+| start_serial                 | Number at which, the instance numbering should start                           | `number`       |    `1`  | no       |
+| storage_type                 | datastore or datastore\_cluster                                                | `string`       | `null`  | no       |
+| vm_type                      | Used to define the appropriate resource block, based on user defined variables | `string`       | `null`  | no       |
+| vsphere_cluster              | vSphere Compute Cluster                                                        | `any`          | `null`  | no       |
+| vsphere_datacenter           | vSphere DataCenter                                                             | `string`       |    n/a  | yes      |
+| vsphere_datastore            | Single DataStore                                                               | `string`       | `null`  | no       |
+| vsphere_datastore_cluster    | DataStore Cluster                                                              | `string`       | `null`  | no       |
+| vsphere_host                 | vSphere single ESXi Host                                                       | `string`       | `null`  | no       |
+| vsphere_network              | Virtual network where do you want the VM to be in                              | `any`          |     n/a | yes      |
+| vsphere_password             | Password of the user account with permissions on the vCenter and the AD Domain | `any`          |     n/a | yes      |
+| vsphere_server               | vCenter server that manages your vSphere Infra-Structure                       | `string`       | n/a     | yes      |
+| vsphere_user                 | User account with permissions on the vCenter and the AD Domain                 | `string`       | n/a     | yes      |
+| vsphere_vm_cpus              | Desired number of CPUs                                                         | `number`       | n/a     | yes      |
+| vsphere_vm_disk-size         | Size of the VM root disk, it defaults to the size of the VM Template root disk | `number`       | `0`     | no       |
+| vsphere_vm_dns_servers       | List of DNS Servers                                                            | `list(string)` | `null`  | no       |
+| vsphere_vm_instance_count    | Desired number of resource instances                                           | `number`       | `1`     | no       |
+| vsphere_vm_ipv4_address      | IP Addresses                                                                   | `list(string)` | `null`  | no       |
+| vsphere_vm_ipv4_gateway      | Network gateway                                                                | `any`          | `null`  | no       |
+| vsphere_vm_ipv4_netmask      | Network submask                                                                | `any`          | `null`  | no       |
+| vsphere_vm_memory            | Desired amount of RAM                                                          | `number`       | n/a     | yes      |
+| vsphere_vm_name              | Desired name for the VM                                                        | `string`       | n/a     | yes      |
+| vsphere_vm_template          | VM Template required for the deployment                                        | `string`       | n/a     | yes      |
 
 ### **TF Outputs**
 
-| Name | Description |
-|------|-------------|
-| VM-OnCluster-OnDataStore-Linux-ip\_addressing\_auto-IPaddress | VM IP Output|
-| VM-OnCluster-OnDataStore-Windows-ip\_addressing\_auto-IPaddress | VM IP Output |
-| VM-OnCluster-OnDataStoreCluster-Linux-ip\_addressing\_auto-IPaddress | VM IP Output |
-| VM-OnCluster-OnDataStoreCluster-Windows-ip\_addressing\_auto-IPaddress | VM IP Output |
-| VM-OnHost-OnDataStore-Linux-ip\_addressing\_auto-IPaddress | VM IP Output |
-| VM-OnHost-OnDataStore-Windows-ip\_addressing\_auto-IPaddress | VM IP Output |
-| VM-OnHost-OnDataStoreCluster-Linux-ip\_addressing\_auto-IPaddress | VM IP Output |
-| VM-OnHost-OnDataStoreCluster-Windows-ip\_addressing\_auto-IPaddress | VM IP Output |
+| Name                         | Description |
+|------------------------------|-------------|
+| DHCP VM resource blocks      | VM IP Output|
 
 ## Usage licence
 
@@ -84,4 +77,4 @@ This is for the community, thus it has no restrictions, please feel free to shar
 
 ## Disclaimer
 
-The author of this module takes no responsability of its use by anyone, although this was properly tested agains a proper vSphere Infra-Structure we still recommend propper testing before you use this in your production environment.
+The author of this module takes no responsability of its use by anyone, although this was properly tested agains a proper vSphere Infra-Structure we still recommend proper testing before you use this in your production environment.
