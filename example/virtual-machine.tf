@@ -12,7 +12,7 @@ data "vault_generic_secret" "vault" {
 ## You can define these here directly, but it is strongly recommended to pass these
 ## variables via file, vault, or Bash variables, for security reasons.
 module "vsphere_virtual_machine" {
-  source                          = "git::https://github.com/Korenet/terraform-vsphere-vm-provisioner.git?ref=v2.0.0"
+  source                          = "git::https://github.com/Korenet/terraform-vsphere-vm-provisioner.git?ref=v2.0.1"
   vsphere_server                  = data.vault_generic_secret.vsphere.data["vsphere_server"]
   vsphere_user                    = data.vault_generic_secret.vsphere.data["vsphere_user"]
   vsphere_password                = data.vault_generic_secret.vsphere.data["vsphere_password"]

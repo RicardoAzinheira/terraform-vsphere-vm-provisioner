@@ -18,7 +18,11 @@ The example file _[virtual-machine.tf](https://github.com/RicardoAzinheira/terra
 - You have an Active Directory domain for the target VMs which is also used by vSphere.
 - The user you provide for vSphere authentication, has permissions to add and modify computer objects in the AD domain.
 
-# [v2.0.0 (current major version)](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/tree/v2.0.0)
+## [v2.0.1](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/tree/v2.0.1)
+
+- Improvememtns in the README and change of minor version in the _[virtual-machine.tf](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/blob/master/example/virtual-machine.tf)_ file.
+
+## [v2.0.0 (current major version)](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/tree/v2.0.0)
 
 - Refactored to current version of Terraform v1.
 - Drastically improves the code via the use of _dynamic blocks_ and _conditional variables_, which reduces both the client and module files.
@@ -37,7 +41,7 @@ The example file _[virtual-machine.tf](https://github.com/RicardoAzinheira/terra
 
 
 
-# [v1.0.3](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/releases/tag/v1.0.3)
+## [v1.0.3](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/releases/tag/v1.0.3)
 #### Features to be implemented in the future:
 
 - Multiple disks in the VMs with TF 0.12 dynamic blocks
