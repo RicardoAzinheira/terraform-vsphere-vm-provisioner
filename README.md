@@ -4,9 +4,7 @@ This is a Terraform v1 module that allows you to deploy VMs against a vSphere en
 ## Purpose of this module:
 
 This module is intended to be used as a VM provisioner to be used against a vSphere environment, 
-the resulting object is a VM resource that will create a vanilla VM with the disks defined in the variables, and with the OS installed in the VM Template.
-
-This module is designed to be flexible, but with code as lean and D.R.Y. as possible. With a combination of _count_ and _for_each_ 
+the resulting object is a VM resource that will create a vanilla VM with the disks defined in the variables, and with the OS installed in the VM Template, and it is designed to be flexible, but with code as lean and D.R.Y. as possible. With a combination of _count_ and _for_each_ 
 in conjunction with _dynamic_blocks_ this can be used against a variety of vSphere environments, and has a good set of VM features.
 
 As the previous version, it still allows to deploy VMs with Windows or Linux, manually defined network configurations, 
