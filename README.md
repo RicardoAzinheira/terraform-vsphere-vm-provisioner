@@ -1,4 +1,4 @@
-# terraform-vsphere-provisioner
+# [terraform-vsphere-vm-provisioner](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/)
 This is a Terraform v1 module that allows you to deploy VMs against a vSphere environment.
 
 ## Purpose of this module:
