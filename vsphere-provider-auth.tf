@@ -1,8 +1,7 @@
-# The Provider block sets up the vSphere provider - How to connect to vCenter. Note the use of
-# variables to avoid hardcoding credentials here
+# The Provider block sets up the vSphere provider to connect to vCenter.
+# Use variables to avoid hardcoding credentials here
 
 provider "vsphere" {
-  version        = "~> 1.18"
   user           = var.vsphere_user
   password       = var.vsphere_password
   vsphere_server = var.vsphere_server

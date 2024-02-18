@@ -13,6 +13,11 @@ variable "vsphere_datacenter" {
     description = "vSphere DataCenter"
     type = string
 }
+variable "vsphere_folder" {
+    description = "vSphere Folder"
+    type = string
+    default = null
+}
 variable "vsphere_cluster" {
     description = "vSphere Compute Cluster"
     default = null
@@ -57,18 +62,43 @@ variable "vsphere_vm_cpus" {
     description = "Desired number of CPUs"
     type = number
 }
+variable "vsphere_vm_cores_per_socket" {
+    description = "Desired number of Cores per Socket"
+    type = number
+    default = 0
+}
+variable "vsphere_hv_mode_enabled" {
+    description = "Hardware Virtualization features pass-trough, should be sett to `hvOff`, `hvOn`, or `hvAuto`"
+    type = string
+    default = "hvOff"
+}
+variable "vsphere_cpu_hot_add_enabled" {
+    description = "Enables the ability to add CPUs with the VM running"
+    type = bool
+    default = false
+}
+variable "vsphere_memory_hot_add_enabled" {
+    description = "Enables the ability to add Memory with the VM running"
+    type = bool
+    default = false
+}
 variable "vsphere_vm_memory" {
     description = "Desired amount of RAM"
     type = number
 }
-variable "vsphere_vm_disk-size" {
-    description = "Size of the VM root disk, it defaults to the size of the VM Template root disk"
-    type = number
-    default = 0
+variable "vsphere_vm_disks" {
+    type = list(any)
+    default = [
+        {
+            label = "disk0"
+            size  = 0
+            unit_number = 0
+        }
+    ]
 }
 variable "vsphere_vm_ipv4_address" {
     description = "IP Addresses"
-    type = list(string)
+    type = list(any)
     default = null
 }
 variable "vsphere_vm_ipv4_netmask" {
@@ -81,34 +111,24 @@ variable "vsphere_vm_ipv4_gateway" {
 }
 variable "vsphere_vm_dns_servers" {
     description = "List of DNS Servers"
-    type = list(string)
+    type = list(any)
     default = null
 }
-variable "compute_type" {                   //This should have "host" or "cluster"
-    description = " host or cluster"
+variable "vsphere_vm_os" {
+    description = "Virtual Machine Operative System (OS)"
     type = string
-    default = null
 }
-variable "storage_type" {                   //This should have "datastore" or "datastore_cluster"
-    description = "datastore or datastore_cluster"
-    type = string
-    default = null
+variable "use_compute_cluster" {
+    description = "defines whether a Compute Cluster is used"
+    type = bool
+    default = true
 }
-variable "os_type" {                        //This should have "windows" or "linox"
-    description = "windows or linux"
-    type = string
-    default = null
-}
-variable "vm_type" {
-    description = "Used to define the appropriate resource block, based on user defined variables"
-    type = string
-    default = null
+variable "use_datastore_cluster" {
+    description = "defines whether a Datastore Cluster is used"
+    type = bool
+    default = false
 }
 variable "domain" {
     description = "Active Directory Domain for Windows or domain for Linux"
     type = string
-}
-variable "ip_addressing_type" {             //This should have "manual" or "auto" (for DHCP)
-    description = "Used to define the use of DHCP or user variable defined network configuration"
-    default = null
 }
