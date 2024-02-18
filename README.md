@@ -1,28 +1,50 @@
 # terraform-vsphere-provisioner
-This is a Terraform 0.12 module that allows you to deploy VMs against a vSphere environment.
+This is a Terraform v1 module that allows you to deploy VMs against a vSphere environment.
 
-### Purpose of this module:
+## Purpose of this module:
 
 This module is intended to be used as a VM provisioner to be used against a vSphere environment, 
 the resulting object is a VM resource that will create a vanilla VM with a single OS disk with the OS installed in the VM Template.
 
-The logic of this module is based on the combination of user defined _input variables_ and a _counter_ with _ternary logic_ to parse all the 16 VM resource blocks.
+This module is designed to be flexible, but with code as lean and D.R.Y. as possible. With a combination of _count_ and _for_each_ 
+in conjunction with _dynamic_blocks_ this can be used against a variety of vSphere environments, and has a good set of VM features.
 
-This provides a flexible combination of VMs with Windows or Linux, manually defined network configurations, or DHCP, as well as any given combination of Compute Clusters or Hosts sitting on either single DataStores or DataStore Clusters.
+As the previous version, it still allows to deploy VMs with Windows or Linux, manually defined network configurations, 
+or DHCP, as well as any given combination of Compute Clusters, or Hosts, sitting on either single DataStores, or DataStore Clusters.
 
-The example files provide good baselines, which you can refer to, to start using this module.
+The example file _[virtual-machine.tf](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/blob/master/example/virtual-machine.tf)_ provides a good baseline, which you can refer to, in order to start using this module.
 
-#
-### Features to be implemented in the future:
-
-- Multiple disks in the VMs with TF 0.12 dynamic blocks
-- Dynamic inline provisioning blocks in the VM resource blocks
-
-### Assumptions
+## Assumptions:
 
 - You have a vSphere Infra-Structure with vCenter Standard and vSphere Enterprise plus on the ESXi hosts.
 - You have an Active Directory domain for the target VMs which is also used by vSphere.
 - The user you provide for vSphere authentication, has permissions to add and modify computer objects in the AD domain.
+
+# [v2.0.0 (current major version)](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/tree/v2.0.0)
+
+- Refactored to current version of Terraform v1.
+- Drastically improves the code via the use of _dynamic blocks_ and _conditional variables_, which reduces both the client and module files.
+- Terraform Providers updated, and tested against the latest version 7 and 8 of vCenter Server.
+- Inclusion of HashiCorp Vault configuration.
+- Addition of Outputs for DHCP VMs.
+- Includes new features:
+  - Multiple Disks (via list type variable)
+  - Ability to enable Hardware Virtualization
+  - Hot CPU and Memory Addition enablement
+  - Socket vs Core allocation configuration
+#### Features to be implemented in the future:
+- Possibly reduce the main.tf even further, by improving the _dynamic block_ logic.
+- Possibility of inclusion of _userdata_, in order to customize _cloud images_.
+- If there is enough interest, multiple NICs.
+
+
+
+# [v1.0.3](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/releases/tag/v1.0.3)
+#### Features to be implemented in the future:
+
+- Multiple disks in the VMs with TF 0.12 dynamic blocks
+- Dynamic inline provisioning blocks in the VM resource blocks
+
 
 #
 
@@ -77,4 +99,4 @@ This is for the community, thus it has no restrictions, please feel free to shar
 
 ## Disclaimer
 
-The author of this module takes no responsability of its use by anyone, although this was properly tested against a supported vSphere Infra-Structure, it is still recommended testing this module before you use it in your production environment.
+The author of this module takes no responsibility of its use by anyone, although this was properly tested against a supported vSphere Infra-Structure, it is still recommended testing this module before you use it in your production environment.
