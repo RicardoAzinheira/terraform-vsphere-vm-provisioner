@@ -96,6 +96,10 @@ variable "vsphere_vm_disks" {
         }
     ]
 }
+variable "cdrom_enabled" {
+    type = bool
+    default = true
+}
 variable "vsphere_vm_ipv4_address" {
     description = "IP Addresses"
     type = list(any)

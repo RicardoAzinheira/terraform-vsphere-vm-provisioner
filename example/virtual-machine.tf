@@ -12,7 +12,7 @@ data "vault_generic_secret" "vault" {
 ## You can define these here directly, but it is strongly recommended to pass these
 ## variables via file, vault, or Bash variables, for security reasons.
 module "vsphere_virtual_machine" {
-  source                          = "git::https://github.com/Korenet/terraform-vsphere-vm-provisioner.git?ref=v2.0.1"
+  source                          = "git::https://github.com/Korenet/terraform-vsphere-vm-provisioner.git?ref=v2.0.2"
   vsphere_server                  = data.vault_generic_secret.vsphere.data["vsphere_server"]
   vsphere_user                    = data.vault_generic_secret.vsphere.data["vsphere_user"]
   vsphere_password                = data.vault_generic_secret.vsphere.data["vsphere_password"]
@@ -42,6 +42,7 @@ module "vsphere_virtual_machine" {
   vsphere_hv_mode_enabled         = "hvOff"
   vsphere_vm_memory               = 2048
   vsphere_memory_hot_add_enabled  = false
+  cdrom_enabled                   = true
 ## This should be provided as an array of the values with the different number of disks and, their required capacity.
   vsphere_vm_disks = [
     # disk0 data
@@ -72,4 +73,7 @@ module "vsphere_virtual_machine" {
   #vsphere_vm_ipv4_netmask         = "24"
   #vsphere_vm_ipv4_gateway         = "1.2.3.10"
   #vsphere_vm_dns_servers          = ["1.2.3.10", "1.2.3.11"]
+}
+output "vm_ip_addresses" {
+  value = module.vsphere_virtual_machine.vm_ip_addresses
 }
