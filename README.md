@@ -18,6 +18,13 @@ The example file _[virtual-machine.tf](https://github.com/RicardoAzinheira/terra
 - You have an Active Directory domain for the target VMs which is also used by vSphere.
 - The user you provide for vSphere authentication, has permissions to add and modify computer objects in the AD domain.
 
+## [v2.0.2] (https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/tree/v2.0.2)
+
+- Consolidated [main.tf](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/blob/master/main.tf) into a single resource block.
+- Added variables for the VM cd-rom configuration.
+- Included VM names and IP addresses as outputs.
+- Updated the [example/virtual-machine.tf](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/blob/master/example/virtual-machine.tf) accordingly to reflect the Terraform Module changes.
+
 ## [v2.0.1](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/tree/v2.0.1)
 
 - Improvememtns in the README and change of minor version in the _[virtual-machine.tf](https://github.com/RicardoAzinheira/terraform-vsphere-vm-provisioner/blob/master/example/virtual-machine.tf)_ file.
